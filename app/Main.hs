@@ -1,11 +1,13 @@
 module Main where
 
 import Criterion.Main
-import Lib
+
+import BuySellStock
 
 main :: IO ()
 main = defaultMain [
-    bgroup "twoSum" [
-      bench "5" $ nf zomg 5
+    bgroup "BuySellStock" [
+      bench "naive1" $ nf BuySellStock.naive [7,1,5,3,6,4],
+      bench "naive2" $ nf BuySellStock.naive [1..1000000]
     ]
   ]
